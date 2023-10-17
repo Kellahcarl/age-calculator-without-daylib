@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Age calculator app</title>
+  </head>
+  <body>
+    <main>
+      <div class="calc-container">
+        <div class="calc-main-box">
+          <div class="calc-header-row">
+            <div>
+              <label for="input0" id="label0">Day</label>
+              <input type="number" id="input0" placeholder="DD" />
+              <p class="calc-header-errorText" id="inputError0"></p>
+            </div>
+            <div>
+              <label for="input1" id="label1">Month</label>
+              <input type="number" id="input1" placeholder="MM" />
+              <p class="calc-header-errorText" id="inputError1"></p>
+            </div>
+            <div>
+              <label for="input2" id="label2">Year</label>
+              <input type="number" id="input2" placeholder="YYYY" />
+              <p class="calc-header-errorText" id="inputError2"></p>
+            </div>
+          </div>
+          <div class="calc-separator">
+            <div class="calc-separator-img">
+              <button title="calc-btn" class="calc-separator-btn" id="result">
+                <svg
+                  width="96"
+                  height="96"
+                  viewBox="0 0 96 96"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect width="96" height="96" rx="48" fill="#854DFF" />
+                  <path
+                    d="M26 48.0189C33.3333 47.6859 48 51.6158 48 70"
+                    stroke="white"
+                    stroke-width="2"
+                  />
+                  <path d="M48 70V26" stroke="white" stroke-width="2" />
+                  <path
+                    d="M70 48.0189C62.6667 47.6859 48 51.6158 48 70"
+                    stroke="white"
+                    stroke-width="2"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="calc-result">
+            <div class="calc-result-row">
+              <p class="calc-result-number" id="years">--</p>
+              <p>years</p>
+            </div>
+            <div class="calc-result-row">
+              <p class="calc-result-number" id="months">--</p>
+              <p>months</p>
+            </div>
+            <div class="calc-result-row">
+              <p class="calc-result-number" id="days">--</p>
+              <p>days</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="attribution">
+        Challenge by
+        <a
+          rel="noopener"
+          href="https://www.frontendmentor.io?ref=challenge"
+          target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a href="https://github.com/Kellahcarl/age-calculator-app-caleb.git"
+          >Caleb Baraka Kellah</a
+        >.
+      </footer>
+    </main>
+  </body>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.7/dayjs.min.js"
+    integrity="sha512-hcV6DX35BKgiTiWYrJgPbu3FxS6CsCjKgmrsPRpUPkXWbvPiKxvSVSdhWX0yXcPctOI2FJ4WP6N1zH+17B/sAA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.7/locale/fr.min.js"
+    integrity="sha512-GdNlwQyB8z0UkoyjhFaBRNQ6aoIVAwczI5aNTXOU7OHRa6fT+ePEizpkjkzms9aOKpboUD2p7qQ7vY0rwVufkA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.7/plugin/duration.min.js"
+    integrity="sha512-QxVJ3lAILV0RSq3wPNV5CFNyyywxd5QfA9jfGfzVViwpL/eWSi5dR1nZMc02c+QE4xz2L1eQvx/fn18RrUq9lw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.7/plugin/isLeapYear.min.js"
+    integrity="sha512-JlfVWUIk/GeRl2L+FBk7/wsGOqlJl2tL5vdH2COWLYcvovagL9W2yyPYtlSYVSNN26Mplpv/WlmQEPw4MzNG0g=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script src="index.js"></script>
+</html>
