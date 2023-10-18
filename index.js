@@ -46,11 +46,9 @@ function checkIfValidData(data, i) {
   element.style.display = "block";
 }
 function calculateDateDifference(userDate, currentDate) {
-  // Calculate the time difference in milliseconds
   const timeDifference = currentDate - userDate;
 
-  // Calculate the number of days, months, and years
-  const millisecondsInDay = 24 * 60 * 60 * 1000;
+  const millisecondsInDay = 24 * 60 * 60 * 1000; // Calculate the number of days, months, and years
   const millisecondsInMonth = millisecondsInDay * 30.44; // Average number of days in a month
 
   let months = Math.floor(timeDifference / millisecondsInMonth);
@@ -93,7 +91,7 @@ getResult.addEventListener("click", () => {
   // console.log(today);
 
   const dateDifference = calculateDateDifference(result, today);
-  
+
   // console.log(dateDifference);
 
   if (dateDifference.days <= 0) {
@@ -110,27 +108,34 @@ getResult.addEventListener("click", () => {
     return false;
   }
   // console.log(year.value);
-  const isLeapYear = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+  const isLeapYear =
+    (year.value % 4 === 0 && year.value % 100 !== 0) || year.value % 400 === 0;
   // console.log(isLeapYear);
 
   const thirtyDayMonths = ["4", "06", "9", "11"];
   const thirtyOneDayMonths = ["01", "03", "05", "07", "08", "10", "12"];
 
   if (month.value === "2") {
-    if ((isLeapYear && day.value < 1) || day.value > 29) {
-      checkIfValidData("Must be a valid day", 0);
+    if (
+      (isLeapYear && (day.value < 1 || day.value > 29)) ||
+      (!isLeapYear && (day.value < 1 || day.value > 28))
+    ) {
+      const message = isLeapYear
+        ? "a month with 29 days"
+        : "a month with 28 days";
+      checkIfValidData(`Put a valid day<br>this is ${message}`, 0);
       resetResultDisplay();
       return false;
     }
   } else if (thirtyDayMonths.includes(month.value)) {
     if (day.value < 1 || day.value > 30) {
-      checkIfValidData("Must be a valid day", 0);
+      checkIfValidData("put a valid day this is<br> a month with 30 days", 0);
       resetResultDisplay();
       return false;
     }
   } else if (thirtyOneDayMonths.includes(month.value)) {
     if (day.value < 1 || day.value > 31) {
-      checkIfValidData("Must be a valid day", 0);
+      checkIfValidData("put a valid day this is <br>a month with 31 days", 0);
       resetResultDisplay();
       return false;
     }
@@ -140,20 +145,16 @@ getResult.addEventListener("click", () => {
 
   // const daysDiff = Math.floor(dateDiff / (1000 * 60 * 60 * 24));
   dayResult.innerHTML = dateDifference.days;
-  
-  
 
   if (month.value < 1 || month.value > 12) {
     checkIfValidData("Must be a valid month", 1);
     resetResultDisplay();
     return false;
   } else {
-    resetErrorStyle( 1 );
+    resetErrorStyle(1);
     // console.log(today.getFullYear());
-    
-     
+
     monthResult.innerHTML = dateDifference.months;
-    
   }
 
   if (year.value < 1000 || year.value >= today.getFullYear()) {
@@ -162,9 +163,8 @@ getResult.addEventListener("click", () => {
     return false;
   } else {
     resetErrorStyle(2);
-    
+
     yearResult.innerHTML = dateDifference.years;
     // console.log( "here" );
-   
   }
 });
